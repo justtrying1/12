@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Telegram Web App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #message { margin: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Telegram Web App!</h1>
+    <div id="message"></div>
+    <button id="sendMessage">Send Message</button>
+
+    <script>
+        // Получаем информацию о пользователе
+        const user = Telegram.WebApp.initDataUnsafe.user;
+        
+        // Отображаем имя пользователя
+        document.getElementById('message').innerText = Hello, ${user.first_name}!;
+
+        // Обработчик кнопки
+        document.getElementById('sendMessage').onclick = function() {
+            Telegram.WebApp.sendData("Hello from my web app!");
+        };
+    </script>
+</body>
+</html>
